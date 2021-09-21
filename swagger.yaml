@@ -4,40 +4,67 @@ definitions:
   ContactAllocataire:
     properties:
       nir:
+        description: NIR de l'allocataire (sur 13 chiffres)
         pattern: "^[0-9]{13}$"
         type: string
         example: 1234567890123
       matricule:
+        description: N° de dossier famille à la Msa ou à la Caf
         example: "000012300000000"
         type: string
       prenom:
+        description: Prénom
         example: Camille
         type: string
       nom:
+        description: Nom
         example: Dupont
         type: string
       rolepers:
+        description: |
+          Rôle de l'individu dans le dossier
+          - DEM si la personne est le demandeur du rSA
+          - CJT si la personne est le conjoint du demandeur
+          - ENF si la personne est un enfant
+          - AUT si la personne est une autre personne
+          - RDO si la personne est le responsable du dossier et que cette personne n'est pas présente sur le dossier"
         example: DEM
         type: string
-      typerper:
+        enum:
+          - DEM
+          - CJT
+          - ENF
+          - AUT
+          - RDO
+      civilite:
+        description: Civilité de la personne
         example: MONSIEUR
         type: string
+        enum:
+          - MONSIEUR
+          - MADAME
       numdemrsa:
+        description: Numéro de la demande de rSA
         example: 01234567890
         type: string
       dtdemrsa:
+        description: Date de la demande de rSA
         example: "2018-08-06"
         type: string
       dtsoumded:
+        description: Date à partir de laquelle la personne est soumises aux droits et devoirs
         example: "2018-08-06"
         type: string
       numteldo:
+        description: Numéro de téléphone affecté à la personne
         example: "0556894472"
         type: string
       numtel2do:
+        description: Second numéro de téléphone affecté à la personne
         example: "0630080982"
         type: string
       emaildos:
+        description: Adresse email affectée à la personne
         example: camille.dupont@example.com
         type: string
     type: object

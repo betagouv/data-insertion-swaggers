@@ -16,10 +16,12 @@
 
 <script>
 
+    const url = document.URL.match(/localhost/) ? "http://localhost:8000/swagger.yaml" : "https://betagouv.github.io/data-insertion-swaggers/swagger.yaml"
+
     window.onload = function() {
         // Build a system
         const ui = SwaggerUIBundle({
-            url: "https://betagouv.github.io/data-insertion-swaggers/swagger.yaml",
+            url: url,
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [
