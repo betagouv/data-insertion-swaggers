@@ -1,0 +1,73 @@
+---
+basePath: "/v1"
+definitions:
+  ContactAllocataire:
+    properties:
+      nir:
+        pattern: "^[0-9]{13}$"
+        type: string
+        example: 1234567890123
+      matricule:
+        example: "000012300000000"
+        type: string
+      prenom:
+        example: Camille
+        type: string
+      nom:
+        example: Dupont
+        type: string
+      rolepers:
+        example: DEM
+        type: string
+      typerper:
+        example: MONSIEUR
+        type: string
+      numdemrsa:
+        example: 01234567890
+        type: string
+      dtdemrsa:
+        example: "2018-08-06"
+        type: string
+      dtsoumded:
+        example: "2018-08-06"
+        type: string
+      numteldo:
+        example: "0556894472"
+        type: string
+      numtel2do:
+        example: "0630080982"
+        type: string
+      emaildos:
+        example: camille.dupont@example.com
+        type: string
+    type: object
+host: api.cnaf.example.com
+info:
+  description: "Ce fichier contient une proposition pour une API mise à disposition par la CNAF pour
+  permettre la récupération des coordonnées de contact des bénéficiaires."
+  title: Proposition d'API pour la récupération des données de contact
+  version: 0.0.1
+paths:
+  "/allocataire/{NIR}/coordonneesContact":
+    get:
+      description: Obtenir les informations de contact pour une personne
+      parameters:
+      - description: NIR de l'allocataire (sur 13 chiffres, sans la clé)
+        pattern: "^[0-9]{13}$"
+        type: string
+        in: path
+        name: NIR
+        required: true
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: requête réussie
+          schema:
+            "$ref": "#/definitions/ContactAllocataire"
+        '404':
+          description: Allocataire introuvable
+      summary: Obtenir les informations de contact pour une personne
+schemes:
+- https
+swagger: '2.0'
