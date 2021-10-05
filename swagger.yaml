@@ -12,6 +12,10 @@ definitions:
         description: N° de dossier famille à la Msa ou à la Caf
         example: "000012300000000"
         type: string
+      code_commune:
+        description: Code INSEE de la commune de rattachement
+        example: "55039"
+        type: string
       prenom:
         description: Prénom
         example: Camille
@@ -66,6 +70,18 @@ definitions:
       emaildos:
         description: Adresse email affectée à la personne
         example: camille.dupont@example.com
+        type: string
+      numteldo_rdo:
+        description: Numéro de téléphone affecté au responsable du dossier
+        example: "0556894473"
+        type: string
+      numtel2do_rdo:
+        description: Second numéro de téléphone affecté au responsable du dossier
+        example: "0630080983"
+        type: string
+      emaildos_rdo:
+        description: Adresse email affectée au responsable du dossier
+        example: jeanine.dupont@example.com
         type: string
     type: object
 host: api.cnaf.example.com
